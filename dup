@@ -1,0 +1,25 @@
+local duplicatedItem = false
+
+function onItemPickup(item)
+    if item.Name == "Duplicator" then
+        duplicatedItem = true
+    end
+end
+
+function onButtonClick(player, buttonId)
+    if buttonId == "Double" then
+        if duplicatedItem == true then
+            player:GiveItem("Duplicator")
+            duplicatedItem = false
+        else
+            player:Kill()
+        end
+    elseif buttonId == "Gem" then
+        if duplicatedItem == true then
+            player:GiveItem("Duplicator")
+            duplicatedItem = false
+        else
+            player:Kill()
+        end
+    end
+end
